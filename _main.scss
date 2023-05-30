@@ -1,0 +1,126 @@
+@import "_variables.scss";
+
+* {
+  padding: $general-padding;
+}
+
+body {
+  color: $grey-blue;
+  font: 100% "Space Mono", monospace;
+  margin: 0;
+  padding: 0;
+  background-color: $white;
+  overflow-x: hidden;
+}
+
+header {
+  h1 {
+    color: $bg-red;
+  }
+}
+
+main {
+  padding: 0 $general-padding;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+
+  section {
+    @include box-shadow($grey-blue);
+    flex-grow: 1;
+    flex-basis: 45%;
+    border: 1px $grey solid;
+    padding: 16px;
+    margin: 16px;
+    clear: both;
+    overflow: auto;
+    box-sizing: border-box;
+
+    &#selling-points {
+      flex-grow: 2;
+      flex-basis: 100%;
+    }
+  }
+  code {
+    background: $black;
+    border: 1px solid #6b717f;
+    color: $grey;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    &.before {
+      float: left;
+      width: 40%;
+    }
+    &.after {
+      float: right;
+      width: 40%;
+    }
+  }
+}
+
+h2 {
+  color: $rose-purple;
+}
+
+h1 {
+  @extend h2;
+  text-align: center;
+}
+
+h3 {
+  @extend h1;
+  font-size: 1.5rem;
+  padding: 32px;
+  margin-bottom: 0px;
+}
+.messages {
+  padding: 16px;
+}
+
+.success {
+  @include style-messages;
+  background-color: $bg-green;
+}
+.error {
+  @include style-messages;
+  background-color: $bg-red;
+}
+.warning {
+  @include style-messages;
+  background-color: $bg-orange;
+}
+
+footer {
+  h3 {
+    padding: $general-padding * 2;
+  }
+}
+
+.advantages {
+  @for $i from 1 through 6 {
+    li:nth-child(n + #{$i}) {
+      background-color: lighten($grey, $i * 2);
+    }
+  }
+
+  // Solution for index on class
+
+  //   @mixin grad {
+  //     @for $i from 1 through 6 {
+  //       .adv-item#{$i} {
+  //         background: darken(white, $i);
+  //         color: darken(aqua, $i);
+  //       }
+  //     }
+  //   }
+}

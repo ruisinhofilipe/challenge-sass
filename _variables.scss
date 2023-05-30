@@ -1,0 +1,25 @@
+//Colors
+$white: #fff;
+$black: #000;
+$grey-blue: #6b717f;
+$grey: #8c8c8c;
+$rose-purple: #bf4080;
+$bg-green: green;
+$bg-red: red;
+$bg-orange: orange;
+
+// General padding
+$general-padding: 1rem;
+
+// Mixing
+@mixin style-messages {
+  border: 1px solid $grey;
+  padding: 16px;
+  color: $white;
+}
+
+@mixin box-shadow($color) {
+  -webkit-box-shadow: 10px 10px 15px -4px $color;
+  -moz-box-shadow: 10px 10px 15px -4px $color;
+  box-shadow: 10px 10px 15px -4px $color;
+}
